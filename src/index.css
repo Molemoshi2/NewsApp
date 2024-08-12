@@ -3,7 +3,7 @@
     padding: 0;
 }
 .logo{
-    background-color: black;
+    background-color: rgb(238, 231, 231);
     color: rgb(221, 24, 90);
     width: 4rem;
     padding: 1rem;
@@ -20,6 +20,13 @@ ul{
 li{
     display: inline;
     margin-right: 2rem;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    color: rgb(236, 63, 121);
 }
 input{
     width: 20rem;

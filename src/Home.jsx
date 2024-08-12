@@ -1,39 +1,32 @@
 import { useState,useEffect } from "react";
+import Navigation from "./navigationBar";
 
 function Home(){
     const [articles,setArticles] = useState([])
+    const [category,setCategory] = useState('everything')
 
 
     useEffect(()=>{
-        let url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${import.meta.env.VITE_API_KEY}`
-        fetch(url).then((res)=>res.json())
-        .then((data)=>setArticles(data.articles))
-        console.log(articles)
-    },[])
+      const url = `https://newsapi.org/v2/${category}?q=us&apiKey=${import.meta.env.VITE_API_KEY}`;
+      fetch (url).then(res => res.json()).then(data => setArticles(data.articles));
+     },[])
+     console.log(articles)
     return(
         <div>
-      <div className="listItems">
-        <div className="logo">NewsApp</div>
-        <div>
-          <input type="text" placeholder="search" />
-        </div>
-        <div >
-          <ul>
-            <li>Sports</li>
-            <li>Tech</li>
-            <li>Fashion</li>
-            <li>Headlines</li>
-          </ul>
-        </div>
-      </div>
-      <hr style={{marginTop:'1rem'}} />
+         <Navigation setCategory={setCategory}/>
       {/* structuring the body */}
+      <h1 style={{textAlign:"center",marginTop:"2rem"}}>Latest trending news</h1>
       <div className="article-container">
-        <div className="article1">sample</div>
-        <div className="article2">sample</div>
-        <div className="article3">sample</div>
-        <div className="article4">sample</div>
-        <div className="article4">sample</div>
+        {articles.map((article)=>(
+          <div style={{width:"21rem"}}>
+            <img style={{width:"20rem"}} src={article.urlToImage} alt="" />
+            <div>
+                <h4>{article.title}</h4>
+                <p>{article.description}</p>
+                <a href={article.url}>Read more</a>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
     );
