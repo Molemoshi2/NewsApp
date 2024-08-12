@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.logo{
+    background-color: black;
+    color: rgb(221, 24, 90);
+    width: 4rem;
+    padding: 1rem;
+    border: white solid 3px;
+    
+}
+.listItems{
+    display: flex;
+    justify-content: space-between;
+}
+ul{
+    margin-top: 3rem;
+}
+li{
+    display: inline;
+    margin-right: 2rem;
+}
+input{
+    width: 20rem;
+    margin-top: 3rem;
+    height: 2.5rem;
+    padding-left: 2rem;
+    border-radius: 2rem;
+    background-color: rgb(240, 238, 238);
+    border: none;
+    outline: none;
+}
+/* styling the body */
+.article-container{
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    row-gap: 3rem;
+}
