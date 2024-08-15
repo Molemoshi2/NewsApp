@@ -1,12 +1,13 @@
-import { useState,useEffect } from "react";
+import { useState } from "react";
 
 function Navigation(props){
+   
     return(
        <div>
             <div className="listItems">
             <div className="logo">NewsApp</div>
             <div>
-            <input type="text" placeholder="search" />
+            <input type="text" placeholder="search"  onChange={props.handleSearch} />
             </div>
             <div >
             <ul>
